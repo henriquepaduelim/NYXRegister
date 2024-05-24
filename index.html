@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Calculator</title>
+    <link rel="icon" type="image/x-icon" href="icons8-electronic-cigarette-50.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="opacity">
+    </div>
+    <h1>Register Calculator</h1>
+    <form id="cash-form">
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Denomination</th>
+                    <th>Amount</th>
+                    <th>Units</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$0.05</td>
+                    <td><span id="amount-0.05">$0.00</span></td>
+                    <td><input type="number" id="units-0.05" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>$0.10</td>
+                    <td><span id="amount-0.10">$0.00</span></td>
+                    <td><input type="number" id="units-0.10" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>$0.25</td>
+                    <td><span id="amount-0.25">$0.00</span></td>
+                    <td><input type="number" id="units-0.25" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>$1.00</td>
+                    <td><span id="amount-1.00">$0.00</span></td>
+                    <td><input type="number" id="units-1.00" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>$2.00</td>
+                    <td><span id="amount-2.00">$0.00</span></td>
+                    <td><input type="number" id="units-2.00" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>$5.00</td>
+                    <td><span id="amount-5.00">$0.00</span></td>
+                    <td><input type="number" id="units-5.00" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>$10.00</td>
+                    <td><span id="amount-10.00">$0.00</span></td>
+                    <td><input type="number" id="units-10.00" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>$20.00</td>
+                    <td><span id="amount-20.00">$0.00</span></td>
+                    <td><input type="number" id="units-20.00" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>$50.00</td>
+                    <td><span id="amount-50.00">$0.00</span></td>
+                    <td><input type="number" id="units-50.00" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>$100.00</td>
+                    <td><span id="amount-100.00">$0.00</span></td>
+                    <td><input type="number" id="units-100.00" value="0" min="0" oninput="calculate()"></td>
+                </tr>
+                <tr>
+                    <td>Coin Rolls</td>
+                    <td><input type="number" id="coin-rolls-amount" value="0" min="0" oninput="calculate()"></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p>Total: <span id="total-amount">$0.00</span></p>
+            <p>Removed: <input type="number" id="removed-amount" value="0" min="0" oninput="calculate()"> $0.00</p>
+            <p>Ending Float: <span id="ending-float">$0.00</span></p>
+            <p>Register: <span id="register-amount">$0.00</span></p>
+        </div>
+        <div class="container">
+            <h1>Counted by</h1>
+            <form id="dataForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                
+                <button type="button" onclick="generatePDF()">Print</button>
+            </form>
+        </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.22/jspdf.plugin.autotable.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
