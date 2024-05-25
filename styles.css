@@ -1,18 +1,47 @@
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 20px;
+    background-image: url('ruvim-noga-pazM9TQJ2Ck-unsplash.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.89;
+}
 
-.container {
-    background-color: #ffffff00;
-    padding: 20px;
-    border-radius: 5px;
+header {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+main {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 2rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+table {
+    width: 100%;
+    border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    transition: background-color 0.8s ease-in-out;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+th:hover, td:hover {
+    background-color: #cccafc;
 }
 
 label {
@@ -27,6 +56,14 @@ input {
     border-radius: 4px;
 }
 
+input[type="number"] {
+    width: 15%;
+    padding: 2.5px;
+    background-color: #c4ccd382;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
 button {
     padding: 10px;
     font-size: 16px;
@@ -35,60 +72,28 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-image: url('ruvim-noga-pazM9TQJ2Ck-unsplash.jpg'); 
-    background-size: cover; /* Garante que a imagem de fundo cubra toda a área disponível */
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
-    opacity: 0.89;
+.container {
+    background-color: #ffffff00;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
-    transition: background-color 0.8s ease-in-out;
-}
-
-/* Mudança de cor ao passar o mouse */
-th:hover, td:hover {
-    background-color: #cccafc;
-}
-
-
-h1 {
+h1, h2 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 form {
     max-width: 600px;
     margin: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-input[type="number"] {
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
 }
 
 div {
@@ -98,29 +103,28 @@ div {
 p {
     margin: 10px 0;
 }
-h1 {
-    text-align: center;
-    color: #030000; /* Azul vibrante */
-    
-}
 
-input[type="number"] {
-    width: 25%;
-    padding: 5px;
-    box-sizing: border-box;
-    background-color: #c4ccd382; /* Cor de fundo suave */
-    border: 1px solid #ccc;
-}
-
-button {
-    background-color: #a72a28; /* Verde vibrante */
-    color: #fff; /* Texto branco */
-    padding: 10px 20px;
-    border: groove;
-    cursor: progress;
-    transition: background-color 0.5s ease;
-}
-
-button:hover {
-    background-color: #218838; /* Verde mais escuro ao passar o mouse */
+/* Responsiveness */
+@media (max-width: 768px) {
+    table, th, td {
+        display: block;
+        width: 100%;
+    }
+    th {
+        display: none;
+    }
+    td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 0.5rem;
+        text-align: left;
+        font-weight: bold;
+    }
 }
