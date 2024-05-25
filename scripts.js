@@ -11,7 +11,7 @@ function calculate() {
         totalAmount += amount;
     });
 
-    const coinRollsAmount = parseFloat(document.getElementById('coin-rolls-amount').value) || 0;
+    const coinRollsAmount = parseFloat(document.getElementById('coin-rolls-input').value) || 0;
     totalAmount += coinRollsAmount;
 
     document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(2)}`;
@@ -53,6 +53,16 @@ function generatePDF() {
         tableData.push(rowData);
     });
 
+    // Add total calculated, removed amount, and ending float
+    const totalAmount = parseFloat(document.getElementById('total-amount').textContent.replace('$', ''));
+    const removedAmount = parseFloat(document.getElementById('removed-amount').value) || 0;
+    const coinRollsAmount = parseFloat(document.getElementById('coin-rolls-input').value) || 0;
+    const endingFloat = totalAmount - removedAmount;
+
+    if (coinRollsAmount !== 0) {
+        tableData.push(['Coin Rolls', `$${coinRollsAmount.toFixed(2)}`]);
+    }
+
     // Add table to PDF
     doc.autoTable({
         head: [['Denomination', 'Amount']],
@@ -60,14 +70,15 @@ function generatePDF() {
         startY: 40
     });
 
-    // Add total amount, removed amount, and ending float
-    const totalAmount = document.getElementById('total-amount').textContent;
-    const removedAmount = parseFloat(document.getElementById('removed-amount').value).toFixed(2);
-    const endingFloat = document.getElementById('ending-float').textContent;
+    // Add total calculated, removed amount, and ending float
+    doc.text(`Total: $${totalAmount.toFixed(2)}`, 10, doc.previousAutoTable.finalY + 10);
+    doc.text(`Removed: $${removedAmount.toFixed(2)}`, 10, doc.previousAutoTable.finalY + 15);
+    doc.text(`Ending Float: $${endingFloat.toFixed(2)}`, 10, doc.previousAutoTable.finalY + 20);
 
-    doc.text(`Total: ${totalAmount}`, 10, doc.previousAutoTable.finalY + 10);
-    doc.text(`Removed: $${removedAmount}`, 10, doc.previousAutoTable.finalY + 15);
-    doc.text(`Ending Float: ${endingFloat}`, 10, doc.previousAutoTable.finalY + 20);
+    // Get current date
+    const currentDate = new Date().toISOString().split('T')[0];
+    const filename = `NYXBathurst_${currentDate}.pdf`;
 
-    doc.save('planilha.pdf');
+    // Save PDF with filename
+    doc.save(filename);
 }

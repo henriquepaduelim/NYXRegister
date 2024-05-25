@@ -16,9 +16,9 @@ header {
 
 main {
     margin: 2rem auto;
-    width: 90%;
+    width: 99%;
     max-width: 800px;
-    background-color: #fff;
+    background-color: #ffffff1c;
     padding: 2rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -50,10 +50,10 @@ label {
 
 input {
     margin-bottom: 20px;
-    padding: 8px;
+    padding: 2px;
     font-size: 16px;
     border: 1px solid #d6fd98bc;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 input[type="number"] {
@@ -68,11 +68,11 @@ button {
     padding: 10px;
     font-size: 16px;
     color: #fff;
-    background-color: #007BFF;
+    background-color: #004cff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.9s ease;
 }
 
 button:hover {
@@ -84,6 +84,7 @@ button:hover {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 h1, h2 {
@@ -101,11 +102,11 @@ div {
 }
 
 p {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 /* Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 760px) {
     table, th, td {
         display: block;
         width: 100%;

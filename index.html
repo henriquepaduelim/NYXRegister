@@ -77,16 +77,18 @@
                     </tr>
                     <tr>
                         <td>Coin Rolls</td>
-                        <td><input type="number" id="coin-rolls-amount" value="0" min="0" oninput="calculate()"></td>
-                        <td></td>
+                        <td><span id="coin-rolls-display">$0.00</span></td>
+                        <td><input type="number" id="coin-rolls-input" value="0" min="0" oninput="calculate()"></td>
+                        
                     </tr>
+                    
                 </tbody>
             </table>
             <div>
                 <p>Total: <span id="total-amount">$0.00</span></p>
                 <p>Removed: <input type="number" id="removed-amount" value="0" min="0" oninput="calculate()"> $0.00</p>
                 <p>Ending Float: <span id="ending-float">$0.00</span></p>
-                <p>Register: <span id="register-amount">$0.00</span></p>
+                <!--<p>Register: <span id="register-amount">$0.00</span></p> -->
             </div>
         </form>
         <section class="container">
